@@ -419,7 +419,7 @@ not fixed any indicator to analyze. clustering by the wisdom of crowds, based on
       </div>
       <div class="flex flex-wrap px-8 md:px-28">
         <div class="w-full md:w-1/2 md:pr-8 md:mb-0 mb-10">
-          <p class="text-3xl mb-12">more diversity</p>
+          <p class="text-3xl mb-12">Gitcoin's GR participate network</p>
           <p>
             Gitcoin Grant Round 3 was distributed by 1,982 contributors for $270k worth of funds for public goods.
           </p>
@@ -440,11 +440,11 @@ not fixed any indicator to analyze. clustering by the wisdom of crowds, based on
           Social Graph for user who donated each project
         </p>
         <p class="font-bold text-2xl" style="color: #00d182">
-          conecting wallet among donated same project
+          connecting wallet among donated same project
         </p>
       </div>
       <div
-        class="grid md:grid-cols-2 md:grid-rows-2 px-8 md:px-32 py-20 md:py-4 mt-8 gap-12 justify-items-center"
+        class="grid md:grid-cols-2 md:grid-rows-1 px-8 md:px-32 py-20 md:py-4 mt-8 gap-12 justify-items-center"
       >
         <div class="max-w-lg">
           <img
@@ -482,49 +482,6 @@ not fixed any indicator to analyze. clustering by the wisdom of crowds, based on
                 src="@/assets/images/menu.svg"
               />
               <span class="mx-2">30</span>
-              <img
-                class="inline-block h-6 w-6"
-                src="@/assets/images/open-in-new.svg"
-              />
-            </p>
-          </div>
-        </div>
-        <div class="max-w-lg">
-          <img class="mb-5" src="@/assets/images/donated_Phi_onGR15.png" />
-          <div class="flex justify-between items-center pb-2 border-b">
-            <p>
-              <img class="inline-block" src="@/assets/images/phi.png" />
-              <span class="ml-1">0x1e...8683</span>
-            </p>
-            <p class="flex items-center">
-              <img
-                class="inline-block h-6 w-6"
-                src="@/assets/images/menu.svg"
-              />
-              <span class="mx-2">30</span>
-              <img
-                class="inline-block h-6 w-6"
-                src="@/assets/images/open-in-new.svg"
-              />
-            </p>
-          </div>
-        </div>
-        <div class="max-w-lg">
-          <img
-            class="mb-5"
-            src="@/assets/images/donated_StarkDeFi_onGR15.png"
-          />
-          <div class="flex justify-between items-center pb-2 border-b">
-            <p>
-              <img class="inline-block" src="@/assets/images/startkdefi.png" />
-              <span class="ml-1">0x1e...8683</span>
-            </p>
-            <p class="flex items-center">
-              <img
-                class="inline-block h-6 w-6"
-                src="@/assets/images/menu.svg"
-              />
-              <span class="mx-2">0.01</span>
               <img
                 class="inline-block h-6 w-6"
                 src="@/assets/images/open-in-new.svg"
