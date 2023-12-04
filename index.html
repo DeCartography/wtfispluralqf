@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="WTF is Plural QF: Intaractive simulator for advanced form of Quadratic Funding">
+    <meta name="keywords" content="Plural QF, Quadratic Funding, Public Goods, DeCartography">
+    <meta name="author" content="taka(0xcommune)">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="WTF is Plural QF">
+    <meta property="og:description"
+        content="WTF is Plural QF: Intaractive simulator for advanced form of Quadratic Funding">
+    <meta property="og:image" content="https://i.gyazo.com/a3988e444b6a35cbf1d5ec0a61d42a7d.png">
+    <meta property="og:url" content="https://tkgshn.github.io/wtfispluralqf/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@0xcommune">
+    <meta name="twitter:title" content="WTF is Plural QF">
+    <meta name="twitter:description"
+        content="WTF is Plural QF: Intaractive simulator for advanced form of Quadratic Funding">
+    <meta name="twitter:image" content="https://i.gyazo.com/a3988e444b6a35cbf1d5ec0a61d42a7d.png">
+
+
+    <title>Plural QF Project</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <div class="center">
+        <h1>WTF is Plural QF</h1>
+
+        <p>Plural QF (Plural Quadratic Funding) is the mathematically optimal way to fund public goods in a democratic
+            community, which is advanced from <a href="https://www.wtfisqf.com/">Quadratic Funding</a>, <b>enhanced aim
+                cooperation Across Differences.</b></p>
+
+        <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/MsMsL5v2-Ls?si=yTli4dxADhFhT_-o&amp;controls=0&amp;start=597"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+
+        <h3>background knowledge</h2>
+            <ul>
+                <li><a
+                        href="https://ethresear.ch/t/pairwise-coordination-subsidies-a-new-quadratic-funding-design/5553">Pairwise
+                        coordination subsidies: a new quadratic funding design</a> by Vitalik Buterin
+                    <p>First idea of ajusting voting power based on participate's social distance on Quadratic Funding.
+                    </p>
+                </li>
+                <li><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4311507">Beyond Collusion Resistance:
+                        Leveraging Social Information for Plural Funding and Voting</a> by Joel Miller, E. Glen Weyl and
+                    Leon Erichsen
+                    <p>Pluralistic and collusion-resistant mechanisms like Connection-Oriented Cluster Match to make QF
+                        more socially equitable.</p>
+                </li>
+                <li><a
+                        href="https://gov.gitcoin.co/t/how-soulbound-tokens-can-make-gitcoin-grants-more-pluralistic/10077">How
+                        Soulbound Tokens Can Make Gitcoin Grants More Pluralistic</a> by Leon Erichsen
+                    <p>Why we need "Identity for Plurality" as a social graph oracle on Gitcoin</p>
+                </li>
+            </ul>
+
+            <br>
+            
+        <h2>Let's simulate Plural QF in this case: </h2>
+            
+        <p>assume once we define social graph likes below</p>
+            
+            <ol>
+                <li>Some cluster likes "L2", "DeFi", "NFT" and "Public Goods".</li>
+                <li>Protted argents 0~6 in each cluster, some argents in multi cluster.</li>
+                <li>you can simulate each argent's donation amount as input by slider. then you can see "Matched Amount" based on
+                    Plural QF fomula.</li>
+            </ol>
+            
+            <img src="https://i.gyazo.com/b3fef1fafa7df38b41c22399b54fc71d.png" alt="Image from Gyazo" width="700" />
+            
+            <div id="agents">
+                <script type="module" src="./js/userInput.js"></script>
+                <div class="agent" id="argent0" onclick="showSlider('argent0')">argent0</div>
+                <div class="agent" id="argent1" onclick="showSlider('argent1')">argent1</div>
+                <div class="agent" id="argent2" onclick="showSlider('argent2')">argent2</div>
+                <div class="agent" id="argent3" onclick="showSlider('argent3')">argent3</div>
+                <div class="agent" id="argent4" onclick="showSlider('argent4')">argent4</div>
+                <div class="agent" id="argent5" onclick="showSlider('argent5')">argent5</div>
+                <div class="agent" id="argent6" onclick="showSlider('argent6')">argent6</div>
+            </div>
+            
+            <br>
+            
+            <div class="field">
+            
+                <div class="left">
+                <div id="slider-container">
+                    donation amount<br>
+                    <input type="range" min="0" max="100" value="0" id="slider" oninput="updateDonationAndCalculate()">
+                    <span id="slidervalue">0</span>
+                </div>
+            
+                <div style="position:relative;width:400px;">
+                    <canvas id="myLineChart"></canvas>
+                    <div id="tooltip" style="position: absolute; background: white; border: 1px solid black; padding: 5px; display: none;"></div>
+                </div>
+                </div>
+                
+            
+                <br>
+            
+                <div class="right">
+                    <form action="#" id="matchingPoolForm">
+                        Matching Pool(budget)<br>
+                        <p><input type="number" name="quantity1" min="0" value="100" id="matchingPool"
+                                oninput="calculateMatchedAmounts()"></p>
+                    </form>
+                    <table id="amountsTable">
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>Donation Amount</th>
+                                <th>Matched Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            
+            <!-- <div id="agentInfo">
+                            <h3>argent info</h3>
+                            <p id="membershipCount"></p>
+                            <p id="friendshipCount"></p>
+                            <p id="currentMatchedAmount"></p>
+                            <p id="currentDonation"></p>
+                            <p id="influenceScore"></p>
+                        </div> -->
+
+                        <br>
+                        <h2>What's the Plural QF?</h2>
+                        
+                        
+                        <div class="field compare">
+                            <div class="left nomalqf">
+                                <h3>Nomal QF</h3>
+                                <img src="assets/nomalqf.png" alt="nomalqf" width="150" />
+                            </div>
+                        
+                            <div class="right pluralqf">
+                                <h3>Plural QF</h3>
+                                <img src="assets/pluralqf.png" alt="pluralqf" width="150" />
+                            </div>
+                        </div>
+                        
+                        <br>
+                        
+                        <div class="discription"></div>
+                        <p>Normal QF has essential risk from <a
+                                href="https://www.gitcoin.co/blog/how-to-attack-and-defend-quadratic-funding">Collusion</a>.</p>
+                        <p>QF, originally designed to efficiently fund public goods, is now used by both private and public entities QF, while
+                            effective, is particularly vulnerable to collusion and Sybil attacks, in which individuals or groups exploit the
+                            system for their own benefit Initial proofs of QF's effectiveness are based on the assumption that participants are
+                            isolated, self-interested agents. Even under normal conditions of weak human cooperation, this assumption breaks
+                            down, suggesting that QF is suboptimal. Thus, QF is susceptible not only to explicit attacks, but also to normal
+                            human behavior that deviates from the original assumption. </p>
+                        <p><b>Plural QF is using social diversity of participate, which minimizing the risk of collusion and more democratic
+                                way.</b></p>
+                        
+                        <div class="first">
+                            <div class="field vitalikstweet">
+                                <div class="left NPCtext">
+                                    <p><b><a href="https://twitter.com/VitalikButerin/status/1580313964067508224?ref_src=twsrc%5Etfw">independent
+                                                thinkers are worth more than 1000 NPCs 🤖</a></b></p>
+                                </div>
+                                <div class="right npc">
+                                    <!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">The cool thing about this idea is that it has great cross-tribal appeal.<br><br>Translated into IDW speak, for example: &quot;50 actually independent thinkers are worth more than 1000 NPCs who all consume the same media and vote the same way&quot;. Very appealing to that group.</p>&mdash; vitalik.eth (@VitalikButerin) <a href="https://twitter.com/VitalikButerin/status/1580313964067508224?ref_src=twsrc%5Etfw">October 12, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+                                    <img src="assets/npc.png" alt="vitalikstweet" width="400" />
+                                </div>
+                            </div>
+                        
+                        
+                            <div class="field vitalikproposal">
+                                <div class="left pawisetext">
+                                    <p><b>Pairwise Coordination subsidies 📐</b></p>
+                                    <p>Vitalik <a
+                                            href="https://ethresear.ch/t/pairwise-coordination-subsidies-a-new-quadratic-funding-design/5553">
+                                            “Pairwise Coordination subsidies” (AKA Plural QF) in ethresearch</a> at 2019. in this post,
+                                        discusses a subsidy formula and proposes a new design that is more robust to the possibility of
+                                        coordination between agents. </p>
+                        
+                                    <p>the design involves a local coefficient for each pair of agents and assumes that the amount of funds a
+                                        specific pair of agents put towards the same projects is itself evidence of how coordinated they are.
+                                    </p>
+                                </div>
+                                <div class="right parwiseimg">
+                                    <img src="assets/parwise.png" alt="parwise" width="300" />
+                                </div>
+                            </div>
+                        
+                            <!-- <p>Plural QF gradually <b>increase cooperation across differences and mute contributions</b> between homogeneous and more highly cooperative groups</p> -->
+                        <p>Plural QF gradually <b>increase cooperation across differences and mute contributions</b> between homogeneous and
+                            more highly cooperative groups</p>
+                        
+                        </div>
+                       
+
+                        <h2>TLDR;</h2>
+                        <div class="field">
+                        
+                            <div class="right meme">
+                                <img src="assets/meme.png" alt="meme" width="400" />
+                            </div>
+                        
+                            <div class="left ilustlations">
+                                <img src="assets/small.png" alt="ilustlation1" width="220" />
+                                <br>
+                                <img src="assets/wide.png" alt="ilustlation1" width="220" />
+                            </div>
+                        
+                        </div>
+                        </div>
+                        </div>
+                        
+                        
+                        <!-- <ul>
+                                    <li><a href="#">Paper 1</a></li>
+                                    <li><a href="#">Paper 2</a></li>
+                                </ul> -->
+                        
+                        <br>
+                        
+                        
+                        <!-- <div class="field">
+                        
+                            <div class="right meme">
+                                <img src="assets/meme.png" alt="meme" width="400" />
+                            </div>
+                        
+                            <div class="left ilustlations">
+                                <img src="assets/small.png" alt="ilustlation1" width="220" />
+                                <br>
+                                <img src="assets/wide.png" alt="ilustlation1" width="220" />
+                            </div>
+                        
+                        </div>
+                        </div>
+                         -->
+                        
+                        <br>
+                        
+                        <footer>
+                            <hr class="footer-divider"> <!-- Divider line -->
+                            <div class="footer-content">
+                                <p>This project is open source. For more info, visit <a href="https://github.com/tkgshn/wtfispluralqf"
+                                        target="_blank">tkgshn/wtfispluralqf</a> on GitHub.</p>
+                                <p>Code written by <a href="https://twitter.com/0xcommune" target="_blank">taka</a> with ChatGPT, founder of <a
+                                        href="https://twitter.com/DeCartography" target="_blank">DeCartography</a>: the infrastructure of Plural
+                                    QF as Social Graph Oracle powered by Web3 Crowdsourcing.</p>
+                            </div>
+                        </footer>
+
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

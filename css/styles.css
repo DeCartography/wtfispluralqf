@@ -1,0 +1,134 @@
+/* styles.css */
+
+
+/* hero */
+
+
+/* simulator */
+.agent {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.agent.selected {
+    opacity: 0.5;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+#slider-container {
+    display: show;
+    padding: 0 0 0px 10px;
+}
+
+.center{
+    width:900px;
+    margin: 0 auto;
+  }
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+    /* margin: 20px; */
+    /* padding: 0 0 0 30px; */
+    /* left: 50px; */
+}
+
+#info {
+    padding: 0 0 0 30px;
+}
+
+.field {
+    /* display: flex; */
+    /* justify-content: space-around; */
+    /* margin: 10px; */
+    /* padding: 20px; */
+
+    display: flex;
+    justify-content:space-around;
+}
+
+
+/* doctumentation */
+.parent {
+ display: flex;
+ justify-content: space-around;
+ }
+ 
+.child {
+ color: #000;
+ /* border: solid 1px #000; */
+ text-align: center;
+ line-height: 100px;
+ width: 100px;
+ height:100px;
+ /* background-color: blue; */
+}
+
+.NPCtext{
+    /* text-align:center; */
+    padding: 80px 0 0 30px;
+}
+
+img[src$="assets/nomalqf.png"]{
+    padding: 15px 0 0 0;
+}
+
+.npc{
+    border: 1px solid #000;
+}
+
+/* .blank{
+    padding: 50px 0 0 0;
+} */
+
+.first{
+    padding: 50px;
+}
+
+.vitalikproposal{
+    padding: 10px;
+}
+
+
+.parwiseimg{
+    /* text-align:center; */
+    padding: 25px;
+}
+
+.ilustlations{
+     display: flex;
+     flex-direction: column;
+     /* margin: 10px; */
+}
+
+/* footer */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background: #333;
+  }
+  
+  .footer-content {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .footer-content a {
+    color: blue;
+    text-decoration: none;
+  }
+  
+  .footer-content p {
+    margin: 0;
+    padding: 5px;
+  }
+  

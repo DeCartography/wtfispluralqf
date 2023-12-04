@@ -1,42 +1,22 @@
-# Nuxt 3 Minimal Starter
+# WTF is Plural QF
+![Alt text](/assets/image.png)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+https://tkgshn.github.io/wtfispluralqf/
 
-## Setup
+## Introduction
 
-Make sure to install the dependencies:
+This repo for Plural QF Simulator website.
 
-```bash
-# yarn
-yarn install
+Plural QF (Plural Quadratic Funding) is an advanced form of Quadratic Funding designed to optimally fund public goods in democratic communities. It enhances cooperation across different social groups.
 
-# npm
-npm install
 
-# pnpm
-pnpm install --shamefully-hoist
-```
+## Features
 
-## Development Server
+- Simulation of Plural QF based on various clusters like "L2", "DeFi", "NFT", and "Public Goods".
+- Evaluation of "Matched Amount" based on Plural QF formula.
+- Donation amount simulation using sliders.
 
-Start the development server on http://localhost:3000
 
-```bash
-npm run dev
-```
+## Contributions
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+This project is open source and contributions are welcome. For more details, visit the [GitHub repository](https://github.com/tkgshn/wtfispluralqf).
